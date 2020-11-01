@@ -145,6 +145,16 @@ export class ConversationService {
     });
   }
 
+  public static sendCustomEvent(serverUrl: string, conversationId: string, eventPayload: any) {
+    //AppMenuBuilder.commandService.remoteCall(SharedConstants.Commands.UI.ShowBotCreationDialog);
+    eventPayload = {
+      type: 'event',
+      name: 'customEvent',
+      value: { language: 'en-Us' },
+    };
+    return this.sendActivityToBot(serverUrl, conversationId, eventPayload);
+  }
+
   public static sendActivityToBot(serverUrl: string, conversationId: string, activity: any): Promise<Response> {
     const url = `${serverUrl}/v3/directline/conversations/${conversationId}/activities`;
     return fetch(url, {

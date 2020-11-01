@@ -382,6 +382,25 @@ export class AppMenuBuilder {
             },
           ],
         },
+        {
+          id: 'send-custom-activity',
+          label: 'Send Custom Activity',
+          submenu: [
+            {
+              label: 'event',
+              click: async () => {
+                var activity = await AppMenuBuilder.commandService.call(
+                  SharedConstants.Commands.UI.ShowCustomActivityEventDialog
+                );
+                const conversationId = getCurrentConversationId();
+
+                ConversationService.sendCustomEvent(getLocalhostServiceUrl(), conversationId, activity);
+                TelemetryService.trackEvent('sendCustomActivity_event');
+              },
+              enabled,
+            },
+          ],
+        },
       ],
     };
   }

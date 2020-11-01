@@ -66,7 +66,9 @@ import {
   UpdateAvailableDialogContainer,
   UpdateUnavailableDialogContainer,
   DataCollectionDialogContainer,
+  CustomActivityEventDialogContainer,
 } from '../ui/dialogs';
+//import { CustomActivityEventDialogDialogProps } from '../ui/dialogs/customActivityEventDialog/customActivityEventDialog';
 import { OpenBotDialogProps } from '../ui/dialogs/openBotDialog/openBotDialog';
 
 const { UI, Telemetry } = SharedConstants.Commands;
@@ -263,5 +265,13 @@ export class UiCommands {
   @Command(UI.ShowDataCollectionDialog)
   protected showDataCollectionDialog() {
     return DialogService.showDialog(DataCollectionDialogContainer);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Shows a Custom Activity - Event dialog
+  @Command(UI.ShowCustomActivityEventDialog)
+  protected async showCustomActivityEventDialog(isDebug: boolean = false): Promise<any> {
+    const mode = isDebug ? 'debug' : undefined;
+    return await DialogService.showDialog(CustomActivityEventDialogContainer);
   }
 }

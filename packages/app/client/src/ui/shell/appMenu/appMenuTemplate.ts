@@ -51,6 +51,7 @@ const {
       SendTyping,
       SendPing,
       SendDeleteUserData,
+      SendCustomEvent,
     },
     Ngrok: { OpenStatusViewer },
     UI: { ShowBotCreationDialog, ShowMarkdownPage, ShowOpenBotDialog, ShowWelcomePage },
@@ -223,6 +224,17 @@ export class AppMenuTemplate {
           {
             label: 'deleteUserData',
             onClick: () => AppMenuTemplate.commandService.remoteCall(SendDeleteUserData),
+          },
+        ],
+      },
+      ,
+      {
+        label: 'Send Custom Activity',
+        type: 'submenu',
+        items: [
+          {
+            label: 'event',
+            onClick: () => AppMenuTemplate.commandService.remoteCall(SendCustomEvent),
           },
         ],
       },

@@ -267,4 +267,12 @@ export class EmulatorCommands {
   protected async getServiceUrl() {
     return Emulator.getInstance().ngrok.getServiceUrl('');
   }
+
+  // ---------------------------------------------------------------------------
+  // Sends custom event
+  @Command(Commands.SendCustomEvent)
+  protected async sendCustomEvent() {
+    ConversationService.sendCustomEvent(getLocalhostServiceUrl(), getCurrentConversationId(), null);
+    TelemetryService.trackEvent('sendActivity_sendCustomEvent');
+  }
 }

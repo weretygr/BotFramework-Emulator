@@ -117,6 +117,7 @@ export const SharedConstants = {
       SendTyping: 'emulator:send-activity:typing',
       SendPing: 'emulator:send-activity:ping',
       SendDeleteUserData: 'emulator:send-activity:delete-user-data',
+      SendCustomEvent: 'emulator:send-custom-activity:event',
     },
 
     Extension: {
@@ -188,6 +189,7 @@ export const SharedConstants = {
       ShowProgressIndicator: 'progress-indicator:show',
       ShowOpenUrlDialog: 'chat:open-url',
       ShowDataCollectionDialog: 'data-collection:show',
+      ShowCustomActivityEventDialog: 'emulator:send-custom-activity:event',
     },
   },
   ContentTypes: {
